@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cron Expression Generator — DevBox Tools</title>
+  <meta name="description" content="Visual cron builder with presets and next run times.">
+  <link rel="canonical" href="https://mohamedelmaz.github.io/devbox-tools/tools/cron-generator/">
+  <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico?v=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32x32.png?v=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/apple-touch-icon.png?v=1">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mohamedelmaz.github.io/devbox-tools/tools/cron-generator/">
+  <meta property="og:title" content="Cron Expression Generator — DevBox Tools">
+  <meta property="og:description" content="Visual cron builder with presets and next run times.">
+  <meta property="og:image" content="https://mohamedelmaz.github.io/devbox-tools/assets/img/og-cover.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://mohamedelmaz.github.io/devbox-tools/tools/cron-generator/">
+  <meta name="twitter:title" content="Cron Expression Generator — DevBox Tools">
+  <meta name="twitter:description" content="Visual cron builder with presets and next run times.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Cron Expression Generator",
+    "description": "Visual cron builder with presets and next run times.",
+    "url": "https://mohamedelmaz.github.io/devbox-tools/tools/cron-generator/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="../../" class="logo">
+        <svg viewBox="0 0 192 192" width="32" height="32" aria-hidden="true">
+          <rect width="192" height="192" rx="96" fill="#8b5cf6"/>
+          <path d="M58 56L88 88L58 120" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M134 56L104 88L134 120" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        DevBox
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../guides/">Guides</a></li>
+          <li><a href="../../developers/">Developers</a></li>
+          <li><a href="../../donate/">Donate</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="menu-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1 class="section-title">Cron Expression Generator</h1>
+      <p class="section-subtitle">Build cron expressions visually and preview next run times.</p>
+
+      <div class="tool-layout">
+        <div class="tool-main">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+            <select id="cron-minute"><option value="*">Every minute</option></select>
+            <select id="cron-hour"><option value="*">Every hour</option></select>
+            <select id="cron-day"><option value="*">Every day</option></select>
+            <select id="cron-month"><option value="*">Every month</option></select>
+            <select id="cron-weekday"><option value="*">Every weekday</option></select>
+          </div>
+          <div class="btn-group">
+            <button id="btn-preset-minute" class="btn btn-sm">Every minute</button>
+            <button id="btn-preset-hourly" class="btn btn-sm">Hourly</button>
+            <button id="btn-preset-daily" class="btn btn-sm">Daily</button>
+            <button id="btn-preset-weekly" class="btn btn-sm">Weekly</button>
+            <button id="btn-preset-monthly" class="btn btn-sm">Monthly</button>
+          </div>
+          <div style="margin-top:16px;">
+            <label style="font-size:0.9rem;font-weight:600;">Expression:</label>
+            <input type="text" id="cron-output" readonly style="margin-top:8px;">
+          </div>
+          <div id="cron-explanation" style="margin-top:12px;font-size:0.9rem;color:var(--text-muted);"></div>
+          <div style="margin-top:16px;">
+            <h4 style="font-size:0.9rem;font-weight:700;margin-bottom:8px;">Next 5 run times</h4>
+            <ul id="next-runs" style="font-size:0.85rem;color:var(--text-muted);"></ul>
+          </div>
+        </div>
+        <div class="tool-sidebar">
+          <div class="sidebar-card">
+            <h4>How it works</h4>
+            <p style="font-size:0.85rem;color:var(--text-muted);">Choose presets or customize fields. The expression updates automatically.</p>
+          </div>
+          <div class="sidebar-card">
+            <h4>Privacy</h4>
+            <p style="font-size:0.85rem;color:var(--text-muted);">🔒 Your data never leaves your device.</p>
+          </div>
+        </div>
+      </div>
+
+      <section class="related-tools">
+        <h3>Need something else?</h3>
+        <a href="../../tools/timestamp-converter/">Timestamp Converter (DevBox)</a>
+        <a href="../../tools/json-formatter/">JSON Formatter (DevBox)</a>
+      </section>
+
+      <section class="faq">
+        <h3>Frequently Asked Questions</h3>
+        <details>
+          <summary>What format is the cron expression?</summary>
+          <div class="faq-body">Standard 5-field cron: minute hour day month weekday.</div>
+        </details>
+        <details>
+          <summary>Are the next run times accurate?</summary>
+          <div class="faq-body">They are calculated in JavaScript based on the current time and may differ slightly from server-side cron implementations.</div>
+        </details>
+        <details>
+          <summary>Can I export the expression?</summary>
+          <div class="faq-body">Yes, the expression is displayed in a text field that you can copy.</div>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <div class="privacy-bar">🔒 Your data never leaves your device</div>
+
+  <footer>
+    <div class="network-links">
+      <p>Part of WebTools Network:</p>
+      <a href="https://mohamedelmaz.github.io/linkqr-tools/">LinkQR Tools — QR & Links</a>
+      <a href="https://mohamedelmaz.github.io/shiftfile-tools/">ShiftFile Tools — File Conversion</a>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/app.js"></script>
+  <script src="../../assets/js/devbox.sdk.js"></script>
+  <script src="../../assets/js/tools/cron-generator.js"></script>
+</body>
+</html>

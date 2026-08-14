@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JWT Decoder — DevBox Tools</title>
+  <meta name="description" content="Decode and inspect JWT tokens. View header, payload, and signature.">
+  <link rel="canonical" href="https://mohamedelmaz.github.io/devbox-tools/tools/jwt-decoder/">
+  <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico?v=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32x32.png?v=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/apple-touch-icon.png?v=1">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mohamedelmaz.github.io/devbox-tools/tools/jwt-decoder/">
+  <meta property="og:title" content="JWT Decoder — DevBox Tools">
+  <meta property="og:description" content="Decode and inspect JWT tokens safely.">
+  <meta property="og:image" content="https://mohamedelmaz.github.io/devbox-tools/assets/img/og-cover.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://mohamedelmaz.github.io/devbox-tools/tools/jwt-decoder/">
+  <meta name="twitter:title" content="JWT Decoder — DevBox Tools">
+  <meta name="twitter:description" content="Decode and inspect JWT tokens safely.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "JWT Decoder",
+    "description": "Decode and inspect JWT tokens.",
+    "url": "https://mohamedelmaz.github.io/devbox-tools/tools/jwt-decoder/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="../../" class="logo">
+        <svg viewBox="0 0 192 192" width="32" height="32" aria-hidden="true">
+          <rect width="192" height="192" rx="96" fill="#8b5cf6"/>
+          <path d="M58 56L88 88L58 120" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M134 56L104 88L134 120" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        DevBox
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../guides/">Guides</a></li>
+          <li><a href="../../developers/">Developers</a></li>
+          <li><a href="../../donate/">Donate</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="menu-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1 class="section-title">JWT Decoder</h1>
+      <p class="section-subtitle">Decode and inspect JWT tokens. View header, payload, and signature.</p>
+
+      <div class="tool-layout">
+        <div class="tool-main">
+          <textarea id="jwt-input" placeholder="Paste your JWT token here..."></textarea>
+          <div class="btn-group">
+            <button id="btn-decode" class="btn">Decode</button>
+            <button id="btn-clear" class="btn btn-error">Clear</button>
+          </div>
+          <div id="jwt-cards" style="display:grid;gap:16px;margin-top:16px;"></div>
+        </div>
+        <div class="tool-sidebar">
+          <div class="sidebar-card">
+            <h4>How it works</h4>
+            <p style="font-size:0.85rem;color:var(--text-muted);">Paste a JWT token and click Decode. The header and payload are decoded client-side.</p>
+          </div>
+          <div class="sidebar-card">
+            <h4>Privacy</h4>
+            <p style="font-size:0.85rem;color:var(--text-muted);">🔒 Your data never leaves your device. Signature verification requires a server.</p>
+          </div>
+        </div>
+      </div>
+
+      <section class="related-tools">
+        <h3>Need something else?</h3>
+        <a href="../../tools/hash-generator/">Hash Generator (DevBox)</a>
+        <a href="../../tools/base64-converter/">Base64 Converter (DevBox)</a>
+      </section>
+
+      <section class="faq">
+        <h3>Frequently Asked Questions</h3>
+        <details>
+          <summary>Is the signature verified?</summary>
+          <div class="faq-body">No. This tool only decodes the header and payload. Signature verification requires the secret key.</div>
+        </details>
+        <details>
+          <summary>Can I check if a token is expired?</summary>
+          <div class="faq-body">Yes, if the payload contains an exp claim, we will indicate whether the token is valid or expired.</div>
+        </details>
+        <details>
+          <summary>Does it support encrypted JWTs?</summary>
+          <div class="faq-body">No. Only unencrypted JWS tokens are supported.</div>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <div class="privacy-bar">🔒 Your data never leaves your device</div>
+
+  <footer>
+    <div class="network-links">
+      <p>Part of WebTools Network:</p>
+      <a href="https://mohamedelmaz.github.io/linkqr-tools/">LinkQR Tools — QR & Links</a>
+      <a href="https://mohamedelmaz.github.io/shiftfile-tools/">ShiftFile Tools — File Conversion</a>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/app.js"></script>
+  <script src="../../assets/js/devbox.sdk.js"></script>
+  <script src="../../assets/js/tools/jwt-decoder.js"></script>
+</body>
+</html>

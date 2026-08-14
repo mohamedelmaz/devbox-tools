@@ -1,0 +1,137 @@
+(function () {
+  'use strict';
+
+  const THEME_KEY = 'devbox-theme';
+
+  function getSystemTheme() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function getStoredTheme() {
+    try { return localStorage.getItem(THEME_KEY); } catch (e) { return null; }
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
+
+  function initTheme() {
+    const stored = getStoredTheme();
+    applyTheme(stored || getSystemTheme());
+  }
+
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+  }
+
+  function updateToggleIcon() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+      btn.innerHTML = isDark ? '☀️' : '🌙';
+    });
+  }
+
+  function initThemeToggle() {
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        toggleTheme();
+        updateToggleIcon();
+      });
+    });
+    updateToggleIcon();
+  }
+
+  function initMobileMenu() {
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    if (!toggle || !nav) return;
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.style.display === 'flex';
+      nav.style.display = isOpen ? '' : 'flex';
+      if (!isOpen) {
+        nav.style.position = 'absolute';
+        nav.style.top = 'var(--header-height)';
+        nav.style.left = '0';
+        nav.style.right = '0';
+        nav.style.background = 'var(--surface)';
+        nav.style.borderBottom = '1px solid var(--border)';
+        nav.style.padding = '16px 24px';
+        nav.style.flexDirection = 'column';
+        nav.style.alignItems = 'stretch';
+        nav.style.gap = '12px';
+        nav.style.boxShadow = 'var(--shadow-lg)';
+        nav.style.zIndex = '99';
+      }
+    });
+  }
+
+  function initSearch() {
+    const searchInput = document.getElementById('tool-search');
+    if (!searchInput) return;
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.bento .card').forEach(card => {
+        const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+        const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
+        const match = !q || title.includes(q) || desc.includes(q);
+        card.style.display = match ? '' : 'none';
+      });
+    });
+  }
+
+  function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    }
+  }
+
+  function initCopyButtons() {
+    document.querySelectorAll('[data-copy]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.querySelector(btn.getAttribute('data-copy'));
+        if (!target) return;
+        target.select?.();
+        navigator.clipboard.writeText(target.value || target.textContent).then(() => {
+          const original = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(() => btn.textContent = original, 1500);
+        });
+      });
+    });
+  }
+
+  function initDropdowns() {
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const menu = toggle.nextElementSibling;
+        document.querySelectorAll('.dropdown-menu.show').forEach(m => {
+          if (m !== menu) m.classList.remove('show');
+        });
+        menu.classList.toggle('show');
+      });
+    });
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
+    });
+  }
+
+  function init() {
+    initTheme();
+    initThemeToggle();
+    initMobileMenu();
+    initSearch();
+    registerServiceWorker();
+    initCopyButtons();
+    initDropdowns();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

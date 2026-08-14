@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cron Jobs: Scheduling Tasks Like a Pro — DevBox Tools</title>
+  <meta name="description" content="Master cron expressions and schedule tasks effectively on Linux, macOS, and web apps.">
+  <link rel="canonical" href="https://mohamedelmaz.github.io/devbox-tools/guides/cron-jobs-guide/">
+  <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico?v=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32x32.png?v=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/apple-touch-icon.png?v=1">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mohamedelmaz.github.io/devbox-tools/guides/cron-jobs-guide/">
+  <meta property="og:title" content="Cron Jobs: Scheduling Tasks Like a Pro">
+  <meta property="og:description" content="Master cron expressions and schedule tasks effectively.">
+  <meta property="og:image" content="https://mohamedelmaz.github.io/devbox-tools/assets/img/og-cover.png">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cron Jobs: Scheduling Tasks Like a Pro",
+    "description": "Master cron expressions and schedule tasks effectively.",
+    "url": "https://mohamedelmaz.github.io/devbox-tools/guides/cron-jobs-guide/",
+    "datePublished": "2026-08-10",
+    "author": { "@type": "Organization", "name": "DevBox Tools" }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="../../" class="logo">
+        <svg viewBox="0 0 192 192" width="32" height="32" aria-hidden="true">
+          <rect width="192" height="192" rx="96" fill="#8b5cf6"/>
+          <path d="M58 56L88 88L58 120" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M134 56L104 88L134 120" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        DevBox
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../../">Home</a></li>
+          <li><a href="../">Guides</a></li>
+          <li><a href="../../developers/">Developers</a></li>
+          <li><a href="../../donate/">Donate</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="menu-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container" style="max-width:760px;">
+      <h1 class="section-title">Cron Jobs: Scheduling Tasks Like a Pro</h1>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:24px;">Published: August 10, 2026</p>
+      <article style="color:var(--text-muted);font-size:1.05rem;line-height:1.8;">
+        <p>Cron is a time-based job scheduler in Unix-like operating systems. It enables you to run commands or scripts automatically at specified intervals — from every minute to once a year.</p>
+        <h2 style="font-size:1.3rem;font-weight:700;color:var(--text);margin-top:32px;margin-bottom:12px;">The Cron Expression</h2>
+        <p>A standard cron expression has 5 fields: minute (0-59), hour (0-23), day of month (1-31), month (1-12), and day of week (0-6, where 0 is Sunday). Each field can be a specific value, a range (1-5), a list (1,3,5), or <code>*</code> (any).</p>
+        <h2 style="font-size:1.3rem;font-weight:700;color:var(--text);margin-top:32px;margin-bottom:12px;">Common Examples</h2>
+        <p><code>0 * * * *</code> — every hour at minute 0. <code>0 0 * * *</code> — every day at midnight. <code>0 0 * * 0</code> — every Sunday at midnight. <code>*/15 * * * *</code> — every 15 minutes.</p>
+        <h2 style="font-size:1.3rem;font-weight:700;color:var(--text);margin-top:32px;margin-bottom:12px;">Best Practices</h2>
+        <p>Log output to a file for debugging. Use absolute paths in scripts. Test with <code>run-parts</code> before scheduling. Consider timezone differences if your server runs UTC. Use monitoring to ensure jobs actually run.</p>
+        <h2 style="font-size:1.3rem;font-weight:700;color:var(--text);margin-top:32px;margin-bottom:12px;">Beyond System Cron</h2>
+        <p>Modern applications often use distributed schedulers like Airflow, Prefect, or cloud-native solutions (AWS EventBridge, GCP Cloud Scheduler). These offer better visibility, retries, and monitoring than traditional cron.</p>
+      </article>
+
+      <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border);">
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:12px;">Related Tools</h3>
+        <a href="../../tools/cron-generator/" style="margin-right:16px;">Cron Generator</a>
+        <a href="../../tools/timestamp-converter/" style="margin-right:16px;">Timestamp Converter</a>
+      </div>
+
+      <section class="faq" style="margin-top:32px;">
+        <h3>Frequently Asked Questions</h3>
+        <details>
+          <summary>What's the difference between cron and at?</summary>
+          <div class="faq-body">Cron is for recurring jobs. <code>at</code> is for one-time scheduled tasks.</div>
+        </details>
+        <details>
+          <summary>Can I use environment variables in cron?</summary>
+          <div class="faq-body">Yes, but cron has a minimal environment. Define variables at the top of your crontab or source your profile in the script.</div>
+        </details>
+        <details>
+          <summary>What if two cron jobs overlap?</summary>
+          <div class="faq-body">Use lock files (e.g., <code>flock</code>) to prevent concurrent execution of the same job.</div>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="network-links">
+      <p>Part of WebTools Network:</p>
+      <a href="https://mohamedelmaz.github.io/linkqr-tools/">LinkQR Tools — QR & Links</a>
+      <a href="https://mohamedelmaz.github.io/shiftfile-tools/">ShiftFile Tools — File Conversion</a>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developers — DevBox Tools</title>
+  <meta name="description" content="DevBox.js SDK and quick start guide for developers.">
+  <link rel="canonical" href="https://mohamedelmaz.github.io/devbox-tools/developers/">
+  <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico?v=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png?v=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png?v=1">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mohamedelmaz.github.io/devbox-tools/developers/">
+  <meta property="og:title" content="Developers — DevBox Tools">
+  <meta property="og:description" content="DevBox.js SDK and quick start for developers.">
+  <meta property="og:image" content="https://mohamedelmaz.github.io/devbox-tools/assets/img/og-cover.png">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="../" class="logo">
+        <svg viewBox="0 0 192 192" width="32" height="32" aria-hidden="true">
+          <rect width="192" height="192" rx="96" fill="#8b5cf6"/>
+          <path d="M58 56L88 88L58 120" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M134 56L104 88L134 120" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        DevBox
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../">Home</a></li>
+          <li><a href="../guides/">Guides</a></li>
+          <li><a href="../developers/">Developers</a></li>
+          <li><a href="../donate/">Donate</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="menu-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container" style="max-width:760px;">
+      <h1 class="section-title">Developers</h1>
+      <p style="color:var(--text-muted);font-size:1.05rem;line-height:1.8;margin-bottom:32px;">
+        DevBox.js is a lightweight SDK that powers DevBox Tools. Use it to add common utilities to your own projects.
+      </p>
+
+      <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:12px;">Quick Start</h2>
+      <pre style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;overflow-x:auto;font-size:0.9rem;margin-bottom:24px;"><code>&lt;script src="https://mohamedelmaz.github.io/devbox-tools/assets/js/devbox.sdk.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  const uuid = DevBoxSDK.uuidv4();
+  const hash = await DevBoxSDK.sha256('hello');
+  DevBoxSDK.copyToClipboard('text');
+&lt;/script&gt;</code></pre>
+
+      <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:12px;">API Reference</h2>
+      <div style="display:grid;gap:12px;margin-bottom:24px;">
+        <div class="card" style="margin:0;">
+          <h4 style="font-family:var(--font-mono);font-size:0.85rem;color:var(--accent);margin-bottom:4px;">DevBoxSDK.$(selector, ctx?)</h4>
+          <p style="font-size:0.9rem;color:var(--text-muted);">Query a single element.</p>
+        </div>
+        <div class="card" style="margin:0;">
+          <h4 style="font-family:var(--font-mono);font-size:0.85rem;color:var(--accent);margin-bottom:4px;">DevBoxSDK.$$(selector, ctx?)</h4>
+          <p style="font-size:0.9rem;color:var(--text-muted);">Query all matching elements.</p>
+        </div>
+        <div class="card" style="margin:0;">
+          <h4 style="font-family:var(--font-mono);font-size:0.85rem;color:var(--accent);margin-bottom:4px;">DevBoxSDK.on(el, event, handler)</h4>
+          <p style="font-size:0.9rem;color:var(--text-muted);">Attach an event listener with auto-cleanup.</p>
+        </div>
+        <div class="card" style="margin:0;">
+          <h4 style="font-family:var(--font-mono);font-size:0.85rem;color:var(--accent);margin-bottom:4px;">DevBoxSDK.uuidv4()</h4>
+          <p style="font-size:0.9rem;color:var(--text-muted);">Generate a UUID v4 using crypto.randomUUID().</p>
+        </div>
+        <div class="card" style="margin:0;">
+          <h4 style="font-family:var(--font-mono);font-size:0.85rem;color:var(--accent);margin-bottom:4px;">DevBoxSDK.sha256(text)</h4>
+          <p style="font-size:0.9rem;color:var(--text-muted);">Compute SHA-256 hash using Web Crypto API.</p>
+        </div>
+        <div class="card" style="margin:0;">
+          <h4 style="font-family:var(--font-mono);font-size:0.85rem;color:var(--accent);margin-bottom:4px;">DevBoxSDK.escapeHtml(str)</h4>
+          <p style="font-size:0.9rem;color:var(--text-muted);">Escape HTML special characters.</p>
+        </div>
+        <div class="card" style="margin:0;">
+          <h4 style="font-family:var(--font-mono);font-size:0.85rem;color:var(--accent);margin-bottom:4px;">DevBoxSDK.formatBytes(bytes)</h4>
+          <p style="font-size:0.9rem;color:var(--text-muted);">Format bytes to human-readable string.</p>
+        </div>
+      </div>
+
+      <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:12px;">Live Demo</h2>
+      <div class="tool-main" style="margin-bottom:24px;">
+        <label style="display:block;font-size:0.9rem;font-weight:600;margin-bottom:8px;">Generate a UUID</label>
+        <button id="demo-uuid" class="btn">Generate UUID</button>
+        <pre id="demo-output" style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;margin-top:12px;font-size:0.9rem;min-height:40px;">—</pre>
+      </div>
+
+      <script>
+        const btn = document.getElementById('demo-uuid');
+        const out = document.getElementById('demo-output');
+        btn.addEventListener('click', () => {
+          out.textContent = DevBoxSDK.uuidv4();
+        });
+      </script>
+    </div>
+  </main>
+
+  <footer>
+    <div class="network-links">
+      <p>Part of WebTools Network:</p>
+      <a href="https://mohamedelmaz.github.io/linkqr-tools/">LinkQR Tools — QR & Links</a>
+      <a href="https://mohamedelmaz.github.io/shiftfile-tools/">ShiftFile Tools — File Conversion</a>
+    </div>
+  </footer>
+
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/devbox.sdk.js"></script>
+</body>
+</html>

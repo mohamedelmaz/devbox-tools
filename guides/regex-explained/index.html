@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regular Expressions Explained: From Basics to Advanced — DevBox Tools</title>
+  <meta name="description" content="Learn regular expressions from basics to advanced patterns with practical examples.">
+  <link rel="canonical" href="https://mohamedelmaz.github.io/devbox-tools/guides/regex-explained/">
+  <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico?v=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32x32.png?v=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/apple-touch-icon.png?v=1">
+  <link rel="manifest" href="../../manifest.webmanifest">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mohamedelmaz.github.io/devbox-tools/guides/regex-explained/">
+  <meta property="og:title" content="Regular Expressions Explained: From Basics to Advanced">
+  <meta property="og:description" content="Learn regex from basics to advanced patterns.">
+  <meta property="og:image" content="https://mohamedelmaz.github.io/devbox-tools/assets/img/og-cover.png">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Regular Expressions Explained: From Basics to Advanced",
+    "description": "Learn regular expressions from basics to advanced patterns.",
+    "url": "https://mohamedelmaz.github.io/devbox-tools/guides/regex-explained/",
+    "datePublished": "2026-08-10",
+    "author": { "@type": "Organization", "name": "DevBox Tools" }
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="../../" class="logo">
+        <svg viewBox="0 0 192 192" width="32" height="32" aria-hidden="true">
+          <rect width="192" height="192" rx="96" fill="#8b5cf6"/>
+          <path d="M58 56L88 88L58 120" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M134 56L104 88L134 120" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        DevBox
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../../">Home</a></li>
+          <li><a href="../">Guides</a></li>
+          <li><a href="../../developers/">Developers</a></li>
+          <li><a href="../../donate/">Donate</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="menu-toggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container" style="max-width:760px;">
+      <h1 class="section-title">Regular Expressions Explained: From Basics to Advanced</h1>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:24px;">Published: August 10, 2026</p>
+      <article style="color:var(--text-muted);font-size:1.05rem;line-height:1.8;">
+        <p>Regular expressions (regex) are patterns used to match character combinations in strings. They're essential for validation, parsing, and text processing in virtually every programming language.</p>
+        <h2 style="font-size:1.3rem;font-weight:700;color:var(--text);margin-top:32px;margin-bottom:12px;">Basic Patterns</h2>
+        <p>Start with literal characters. The regex <code>cat</code> matches "cat" exactly. Use <code>.</code> to match any single character, <code>*</code> for zero or more repetitions, and <code>+</code> for one or more.</p>
+        <h2 style="font-size:1.3rem;font-weight:700;color:var(--text);margin-top:32px;margin-bottom:12px;">Character Classes</h2>
+        <p><code>[abc]</code> matches any one of a, b, or c. <code>[^abc]</code> matches anything except those. Shorthand classes include <code>\d</code> (digits), <code>\w</code> (word characters), and <code>\s</code> (whitespace).</p>
+        <h2 style="font-size:1.3rem;font-weight:700;color:var(--text);margin-top:32px;margin-bottom:12px;">Anchors and Boundaries</h2>
+        <p><code>^</code> matches start of string, <code>$</code> matches end. <code>\b</code> matches a word boundary. These are crucial for validation — e.g., <code>^\d{4}-\d{2}-\d{2}$</code> matches a date string exactly.</p>
+        <h2 style="font-size:1.3rem;font-weight:700;color:var(--text);margin-top:32px;margin-bottom:12px;">Groups and Quantifiers</h2>
+        <p>Parentheses <code>()</code> create capture groups. Quantifiers like <code>{3}</code>, <code>{3,5}</code>, and <code>{3,}</code> specify exact repetition counts. Use <code>?</code> for optional elements.</p>
+        <h2 style="font-size:1.3rem;font-weight:700;color:var(--text);margin-top:32px;margin-bottom:12px;">Practical Examples</h2>
+        <p>Email: <code>[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}</code>. URL: <code>https?://[\w\-._~:/?#\[\]@!$&'()*+,;=%]+</code>. IP: <code>\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b</code>.</p>
+      </article>
+
+      <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border);">
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:12px;">Related Tools</h3>
+        <a href="../../tools/regex-tester/" style="margin-right:16px;">Regex Tester</a>
+        <a href="../../tools/json-formatter/" style="margin-right:16px;">JSON Formatter</a>
+      </div>
+
+      <section class="faq" style="margin-top:32px;">
+        <h3>Frequently Asked Questions</h3>
+        <details>
+          <summary>Are regexes the same in every language?</summary>
+          <div class="faq-body">Most languages follow similar syntax, but there are differences in supported features and flags. JavaScript uses ECMAScript regex syntax.</div>
+        </details>
+        <details>
+          <summary>What are lookaheads and lookbehinds?</summary>
+          <div class="faq-body">Lookaheads <code>(?=...)</code> and lookbehinds <code>(?<=...)</code> match positions without consuming characters. They're advanced features for complex patterns.</div>
+        </details>
+        <details>
+          <summary>Can regex parse nested structures?</summary>
+          <div class="faq-body">No. Regex cannot handle arbitrarily nested structures like nested parentheses or JSON. Use a proper parser for those.</div>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="network-links">
+      <p>Part of WebTools Network:</p>
+      <a href="https://mohamedelmaz.github.io/linkqr-tools/">LinkQR Tools — QR & Links</a>
+      <a href="https://mohamedelmaz.github.io/shiftfile-tools/">ShiftFile Tools — File Conversion</a>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/app.js"></script>
+</body>
+</html>

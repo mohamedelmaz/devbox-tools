@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mohamedelmaz.github.io/devbox-tools/sitemap.xml
