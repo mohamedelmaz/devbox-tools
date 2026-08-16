@@ -884,3 +884,13 @@ footer {
   left: auto;
   right: 16px;
 }
+/* Active navigation link */
+.nav-links a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.dropdown.active .dropdown-toggle {
+  color: var(--accent);
+  font-weight: 600;
+}
