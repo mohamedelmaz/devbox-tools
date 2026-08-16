@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — DevBox Tools</title>
-  <meta name="description" content="Get in touch with the DevBox Tools team.">
-  <link rel="canonical" href="https://mohamedelmaz.github.io/devbox-tools/contact/">
+  <title>Guides — DevBox Tools</title>
+  <meta name="description" content="Developer guides and tutorials for JSON, Regex, JWT, Cron, and Password Security.">
+  <link rel="canonical" href="https://mohamedelmaz.github.io/devbox-tools/guides/">
   <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico?v=1">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png?v=1">
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png?v=1">
   <link rel="manifest" href="../manifest.webmanifest">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mohamedelmaz.github.io/devbox-tools/contact/">
-  <meta property="og:title" content="Contact — DevBox Tools">
-  <meta property="og:description" content="Get in touch with the DevBox Tools team.">
+  <meta property="og:url" content="https://mohamedelmaz.github.io/devbox-tools/guides/">
+  <meta property="og:title" content="Guides — DevBox Tools">
+  <meta property="og:description" content="Developer guides and tutorials.">
   <meta property="og:image" content="https://mohamedelmaz.github.io/devbox-tools/assets/img/og-cover.png">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -33,6 +33,7 @@
           <li><a href="../">Home</a></li>
           <li><a href="../guides/">Guides</a></li>
           <li><a href="../developers/">Developers</a></li>
+          <li><a href="../donate/">Donate</a></li>
         </ul>
       </nav>
       <div class="header-actions">
@@ -44,25 +45,34 @@
 
   <main class="section">
     <div class="container" style="max-width:760px;">
-      <h1 class="section-title">Contact</h1>
-      <p style="color:var(--text-muted);font-size:1.05rem;line-height:1.8;margin-bottom:24px;">
-        We'd love to hear from you. Whether you have a question, feedback, bug report, or partnership idea — reach out.
-      </p>
-      <div class="bento" style="grid-template-columns: 1fr;">
+      <h1 class="section-title">Guides</h1>
+      <p class="section-subtitle">Learn the concepts behind the tools.</p>
+
+      <div class="bento">
         <div class="card">
-          <h3>General Inquiries</h3>
-          <p style="margin-bottom:8px;">For general questions and feedback:</p>
-          <a href="mailto:hello@devbox.tools" style="font-weight:600;">hello@devbox.tools</a>
+          <h3>Understanding JSON</h3>
+          <p>A complete guide for developers working with JSON data.</p>
+          <a href="understanding-json/" class="btn">Read →</a>
         </div>
         <div class="card">
-          <h3>Support</h3>
-          <p style="margin-bottom:8px;">For technical support and bug reports:</p>
-          <a href="mailto:support@devbox.tools" style="font-weight:600;">support@devbox.tools</a>
+          <h3>Regular Expressions Explained</h3>
+          <p>From basics to advanced regex patterns with examples.</p>
+          <a href="regex-explained/" class="btn">Read →</a>
         </div>
         <div class="card">
-          <h3>Other</h3>
-          <p style="margin-bottom:8px;">For everything else:</p>
-          <a href="mailto:contact@devbox.tools" style="font-weight:600;">contact@devbox.tools</a>
+          <h3>JWT Tokens Explained</h3>
+          <p>How JWT works and how to use them safely.</p>
+          <a href="jwt-tokens-explained/" class="btn">Read →</a>
+        </div>
+        <div class="card">
+          <h3>Cron Jobs Guide</h3>
+          <p>Scheduling tasks like a pro with cron expressions.</p>
+          <a href="cron-jobs-guide/" class="btn">Read →</a>
+        </div>
+        <div class="card">
+          <h3>Password Security 2026</h3>
+          <p>Best practices for password security in modern apps.</p>
+          <a href="password-security-2026/" class="btn">Read →</a>
         </div>
       </div>
     </div>

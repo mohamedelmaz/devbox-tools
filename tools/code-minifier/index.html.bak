@@ -3,30 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Markdown Live Preview — DevBox Tools</title>
-  <meta name="description" content="Live Markdown editor with HTML preview. Supports headings, bold, italic, code, links, images, lists, and more.">
-  <link rel="canonical" href="https://mohamedelmaz.github.io/devbox-tools/tools/markdown-preview/">
+  <title>Code Minifier — DevBox Tools</title>
+  <meta name="description" content="Minify and beautify HTML, CSS, and JS with size statistics.">
+  <link rel="canonical" href="https://mohamedelmaz.github.io/devbox-tools/tools/code-minifier/">
   <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico?v=1">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32x32.png?v=1">
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/apple-touch-icon.png?v=1">
   <link rel="manifest" href="../../manifest.webmanifest">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mohamedelmaz.github.io/devbox-tools/tools/markdown-preview/">
-  <meta property="og:title" content="Markdown Live Preview — DevBox Tools">
-  <meta property="og:description" content="Live Markdown editor with HTML preview.">
+  <meta property="og:url" content="https://mohamedelmaz.github.io/devbox-tools/tools/code-minifier/">
+  <meta property="og:title" content="Code Minifier — DevBox Tools">
+  <meta property="og:description" content="Minify and beautify HTML, CSS, and JS with size stats.">
   <meta property="og:image" content="https://mohamedelmaz.github.io/devbox-tools/assets/img/og-cover.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:url" content="https://mohamedelmaz.github.io/devbox-tools/tools/markdown-preview/">
-  <meta name="twitter:title" content="Markdown Live Preview — DevBox Tools">
-  <meta name="twitter:description" content="Live Markdown editor with HTML preview.">
+  <meta name="twitter:url" content="https://mohamedelmaz.github.io/devbox-tools/tools/code-minifier/">
+  <meta name="twitter:title" content="Code Minifier — DevBox Tools">
+  <meta name="twitter:description" content="Minify and beautify HTML, CSS, and JS with size stats.">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Markdown Live Preview",
-    "description": "Live Markdown editor with HTML preview.",
-    "url": "https://mohamedelmaz.github.io/devbox-tools/tools/markdown-preview/",
+    "name": "Code Minifier",
+    "description": "Minify and beautify HTML, CSS, and JS with size statistics.",
+    "url": "https://mohamedelmaz.github.io/devbox-tools/tools/code-minifier/",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Any",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
@@ -49,6 +49,7 @@
           <li><a href="../../">Home</a></li>
           <li><a href="../../guides/">Guides</a></li>
           <li><a href="../../developers/">Developers</a></li>
+          <li><a href="../../donate/">Donate</a></li>
         </ul>
       </nav>
       <div class="header-actions">
@@ -60,22 +61,32 @@
 
   <main class="section">
     <div class="container">
-      <h1 class="section-title">Markdown Live Preview</h1>
-      <p class="section-subtitle">Write Markdown and preview HTML in real-time.</p>
+      <h1 class="section-title">Code Minifier</h1>
+      <p class="section-subtitle">Minify and beautify HTML, CSS, and JS with size statistics.</p>
 
       <div class="tool-layout">
         <div class="tool-main">
-          <textarea id="md-input" placeholder="Write Markdown here..."></textarea>
-          <div class="btn-group">
-            <button id="btn-copy" class="btn btn-secondary" data-copy="#md-preview">Copy HTML</button>
-            <button id="btn-clear" class="btn btn-error">Clear</button>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;">
+            <select id="lang">
+              <option value="html">HTML</option>
+              <option value="css">CSS</option>
+              <option value="js">JS</option>
+            </select>
           </div>
-          <div id="md-preview" style="border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px;min-height:200px;background:var(--bg);"></div>
+          <textarea id="code-input" placeholder="Paste your code here..."></textarea>
+          <div class="btn-group">
+            <button id="btn-minify" class="btn">Minify</button>
+            <button id="btn-beautify" class="btn btn-secondary">Beautify</button>
+            <button id="btn-clear" class="btn btn-error">Clear</button>
+            <button id="btn-copy" class="btn btn-secondary" data-copy="#code-output">Copy</button>
+          </div>
+          <textarea id="code-output" readonly placeholder="Output will appear here..."></textarea>
+          <div id="code-stats" class="stats" style="display:none;"></div>
         </div>
         <div class="tool-sidebar">
           <div class="sidebar-card">
             <h4>How it works</h4>
-            <p style="font-size:0.85rem;color:var(--text-muted);">Type Markdown on the left, see HTML preview on the right.</p>
+            <p style="font-size:0.85rem;color:var(--text-muted);">Paste code, select language, and choose Minify or Beautify.</p>
           </div>
           <div class="sidebar-card">
             <h4>Privacy</h4>
@@ -86,23 +97,23 @@
 
       <section class="related-tools">
         <h3>Need something else?</h3>
-        <a href="../../tools/code-minifier/">Code Minifier (DevBox)</a>
-        <a href="https://mohamedelmaz.github.io/linkqr-tools/tools/utm-builder/">UTM Builder (LinkQR)</a>
+        <a href="../../tools/xml-formatter/">XML Formatter (DevBox)</a>
+        <a href="../../tools/json-formatter/">JSON Formatter (DevBox)</a>
       </section>
 
       <section class="faq">
         <h3>Frequently Asked Questions</h3>
         <details>
-          <summary>Which Markdown features are supported?</summary>
-          <div class="faq-body">Headings, bold, italic, inline code, code blocks, links, images, lists, blockquotes, and horizontal rules.</div>
+          <summary>Does minification remove functionality?</summary>
+          <div class="faq-body">No. Minification only removes whitespace and comments. The code behavior remains identical.</div>
         </details>
         <details>
-          <summary>Is GitHub-flavored Markdown supported?</summary>
-          <div class="faq-body">Basic GFM features like tables and task lists are not yet supported.</div>
+          <summary>Can I beautify minified code?</summary>
+          <div class="faq-body">Yes, click Beautify to reformat minified code into readable structure.</div>
         </details>
         <details>
-          <summary>Can I export the HTML?</summary>
-          <div class="faq-body">Yes, use the Copy HTML button to copy the rendered HTML to your clipboard.</div>
+          <summary>Is source map supported?</summary>
+          <div class="faq-body">No. Source maps are not generated or consumed.</div>
         </details>
       </section>
     </div>
@@ -120,6 +131,6 @@
 
   <script src="../../assets/js/app.js"></script>
   <script src="../../assets/js/devbox.sdk.js"></script>
-  <script src="../../assets/js/tools/markdown-preview.js"></script>
+  <script src="../../assets/js/tools/code-minifier.js"></script>
 </body>
 </html>

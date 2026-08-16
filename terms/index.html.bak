@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — DevBox Tools</title>
-  <meta name="description" content="DevBox Tools is a privacy-first, open-source collection of 14 free in-browser developer tools.">
-  <link rel="canonical" href="https://mohamedelmaz.github.io/devbox-tools/about/">
+  <title>Terms of Service — DevBox Tools</title>
+  <meta name="description" content="Terms of service for DevBox Tools. MIT License.">
+  <link rel="canonical" href="https://mohamedelmaz.github.io/devbox-tools/terms/">
   <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico?v=1">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png?v=1">
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png?v=1">
   <link rel="manifest" href="../manifest.webmanifest">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mohamedelmaz.github.io/devbox-tools/about/">
-  <meta property="og:title" content="About — DevBox Tools">
-  <meta property="og:description" content="Privacy-first, open-source developer tools. No sign-up, no tracking.">
+  <meta property="og:url" content="https://mohamedelmaz.github.io/devbox-tools/terms/">
+  <meta property="og:title" content="Terms of Service — DevBox Tools">
+  <meta property="og:description" content="Terms of service and MIT License for DevBox Tools.">
   <meta property="og:image" content="https://mohamedelmaz.github.io/devbox-tools/assets/img/og-cover.png">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -33,6 +33,7 @@
           <li><a href="../">Home</a></li>
           <li><a href="../guides/">Guides</a></li>
           <li><a href="../developers/">Developers</a></li>
+          <li><a href="../donate/">Donate</a></li>
         </ul>
       </nav>
       <div class="header-actions">
@@ -44,23 +45,27 @@
 
   <main class="section">
     <div class="container" style="max-width:760px;">
-      <h1 class="section-title">About DevBox Tools</h1>
+      <h1 class="section-title">Terms of Service</h1>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:24px;">Last updated: August 10, 2026</p>
       <p style="color:var(--text-muted);font-size:1.05rem;line-height:1.8;margin-bottom:24px;">
-        DevBox Tools started with a simple idea: developer tools should be fast, private, and accessible to everyone. We believe you shouldn't need to create an account, upload your data to a server, or worry about privacy just to format JSON or test a regex.
+        By using DevBox Tools, you agree to the following terms. The software is provided "as is" without warranty of any kind.
       </p>
-      <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:12px;">Our Philosophy</h2>
+      <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:12px;">License</h2>
       <p style="color:var(--text-muted);font-size:1.05rem;line-height:1.8;margin-bottom:24px;">
-        Privacy is not a feature — it's a prerequisite. Every tool in DevBox runs entirely in your browser. We use the Web Crypto API for cryptographic operations, ensuring your sensitive data stays on your device. No telemetry, no cookies, no external requests (except for fonts and images).
+        DevBox Tools is released under the MIT License. See the <a href="../LICENSE">LICENSE</a> file for full terms.
       </p>
-      <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:12px;">Open Source</h2>
+      <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:12px;">Acceptable Use</h2>
       <p style="color:var(--text-muted);font-size:1.05rem;line-height:1.8;margin-bottom:24px;">
-        DevBox Tools is open source under the MIT License. We welcome contributions, bug reports, and feature requests. If you find a tool useful, consider starring the repo or sharing it with your team.
+        You may use DevBox Tools for personal, educational, and commercial purposes. You may not use the tools for illegal activities or to process data in ways that violate applicable laws.
       </p>
-      <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:12px;">The Network</h2>
+      <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:12px;">Disclaimer</h2>
       <p style="color:var(--text-muted);font-size:1.05rem;line-height:1.8;margin-bottom:24px;">
-        DevBox is part of the WebTools Network, alongside <a href="https://mohamedelmaz.github.io/linkqr-tools/">LinkQR Tools</a> (QR & Links) and <a href="https://mohamedelmaz.github.io/shiftfile-tools/">ShiftFile Tools</a> (File Conversion). Together, we cover the most common developer and productivity tasks without compromising your privacy.
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
       </p>
-      <a href="../" class="btn">Back to Home</a>
+      <h2 style="font-size:1.2rem;font-weight:700;margin-bottom:12px;">DMCA</h2>
+      <p style="color:var(--text-muted);font-size:1.05rem;line-height:1.8;margin-bottom:24px;">
+        If you believe any content on DevBox Tools infringes your copyright, please contact us at dmca@devbox.tools with details of the alleged infringement.
+      </p>
     </div>
   </main>
 
