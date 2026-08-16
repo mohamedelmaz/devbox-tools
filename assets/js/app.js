@@ -31,6 +31,7 @@
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     document.querySelectorAll('.theme-toggle').forEach(btn => {
       btn.textContent = isDark ? '☀️' : '🌙';
+      btn.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
     });
   }
 
@@ -76,7 +77,7 @@
     }
   }
 
-  // ---- Clipboard function with fallback ----
+  // ---- Clipboard fallback ----
   function fallbackCopyText(text) {
     try {
       const ta = document.createElement('textarea');
@@ -121,28 +122,27 @@
     });
   }
 
-  // ---- Dropdowns with guard and ARIA ----
+  // ---- Dropdowns with guard, ARIA, and Escape key ----
   function initDropdowns() {
     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
       toggle.addEventListener('click', (e) => {
         e.stopPropagation();
         const menu = toggle.nextElementSibling;
-        // Guard: تأكد من وجود menu وأنه يحتوي على classList
+        // ✅ Guard: check if menu exists
         if (!menu || !menu.classList) return;
 
-        // أغلق القوائم المفتوحة الأخرى
+        // Close other open dropdowns
         document.querySelectorAll('.dropdown-menu.show').forEach(m => {
           if (m !== menu) m.classList.remove('show');
         });
 
-        // افتح/أغلق القائمة الحالية
         const isOpen = menu.classList.contains('show');
         menu.classList.toggle('show');
         toggle.setAttribute('aria-expanded', !isOpen);
       });
     });
 
-    // أغلق القوائم عند النقر خارجها
+    // Close dropdowns when clicking outside
     document.addEventListener('click', () => {
       document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
       document.querySelectorAll('.dropdown-toggle[aria-expanded="true"]').forEach(btn => {
@@ -150,7 +150,7 @@
       });
     });
 
-    // أغلق القوائم بالضغط على مفتاح Esc
+    // ✅ Escape key handler
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
