@@ -30,7 +30,7 @@
   function updateToggleIcon() {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     document.querySelectorAll('.theme-toggle').forEach(btn => {
-      btn.innerHTML = isDark ? '☀️' : '🌙';
+      btn.textContent = isDark ? '☀️' : '🌙';
     });
   }
 
@@ -48,23 +48,11 @@
     const toggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav-links');
     if (!toggle || !nav) return;
+
     toggle.addEventListener('click', () => {
-      const isOpen = nav.style.display === 'flex';
-      nav.style.display = isOpen ? '' : 'flex';
-      if (!isOpen) {
-        nav.style.position = 'absolute';
-        nav.style.top = 'var(--header-height)';
-        nav.style.left = '0';
-        nav.style.right = '0';
-        nav.style.background = 'var(--surface)';
-        nav.style.borderBottom = '1px solid var(--border)';
-        nav.style.padding = '16px 24px';
-        nav.style.flexDirection = 'column';
-        nav.style.alignItems = 'stretch';
-        nav.style.gap = '12px';
-        nav.style.boxShadow = 'var(--shadow-lg)';
-        nav.style.zIndex = '99';
-      }
+      const isOpen = nav.classList.contains('open');
+      nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', !isOpen);
     });
   }
 
@@ -88,14 +76,44 @@
     }
   }
 
+  // ---- Clipboard function with fallback ----
+  function fallbackCopyText(text) {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      return true;
+    } catch (e) {
+      console.warn('Fallback copy failed:', e);
+      return false;
+    }
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text)
+        .then(() => true)
+        .catch(() => fallbackCopyText(text));
+    } else {
+      return Promise.resolve(fallbackCopyText(text));
+    }
+  }
+
   function initCopyButtons() {
     document.querySelectorAll('[data-copy]').forEach(btn => {
       btn.addEventListener('click', () => {
         const target = document.querySelector(btn.getAttribute('data-copy'));
         if (!target) return;
-        target.select?.();
-        navigator.clipboard.writeText(target.value || target.textContent).then(() => {
-          const original = btn.textContent;
+        const text = target.value || target.textContent || '';
+        if (!text) return;
+
+        const original = btn.textContent;
+        copyText(text).then(() => {
           btn.textContent = 'Copied!';
           setTimeout(() => btn.textContent = original, 1500);
         });
@@ -103,21 +121,47 @@
     });
   }
 
+  // ---- Dropdowns with guard and ARIA ----
   function initDropdowns() {
     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
       toggle.addEventListener('click', (e) => {
         e.stopPropagation();
         const menu = toggle.nextElementSibling;
+        // Guard: تأكد من وجود menu وأنه يحتوي على classList
+        if (!menu || !menu.classList) return;
+
+        // أغلق القوائم المفتوحة الأخرى
         document.querySelectorAll('.dropdown-menu.show').forEach(m => {
           if (m !== menu) m.classList.remove('show');
         });
-        const menu = toggle.nextElementSibling;
-if (!menu || !menu.classList) return;   // <-- أضف هذا السطر
-menu.classList.toggle('show');          // <-- هذا السطر موجود بالفعل;
+
+        // افتح/أغلق القائمة الحالية
+        const isOpen = menu.classList.contains('show');
+        menu.classList.toggle('show');
+        toggle.setAttribute('aria-expanded', !isOpen);
       });
     });
+
+    // أغلق القوائم عند النقر خارجها
     document.addEventListener('click', () => {
       document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
+      document.querySelectorAll('.dropdown-toggle[aria-expanded="true"]').forEach(btn => {
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // أغلق القوائم بالضغط على مفتاح Esc
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
+        document.querySelectorAll('.dropdown-toggle[aria-expanded="true"]').forEach(btn => {
+          btn.setAttribute('aria-expanded', 'false');
+        });
+        document.querySelectorAll('.nav-links.open').forEach(n => n.classList.remove('open'));
+        document.querySelectorAll('.menu-toggle[aria-expanded="true"]').forEach(btn => {
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      }
     });
   }
 
@@ -137,21 +181,3 @@ menu.classList.toggle('show');          // <-- هذا السطر موجود با
     init();
   }
 })();
-
-// ---- Clipboard fallback function ----
-function fallbackCopyText(text) {
-  try {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    return true;
-  } catch (e) {
-    console.warn('Fallback copy failed:', e);
-    return false;
-  }
-}
