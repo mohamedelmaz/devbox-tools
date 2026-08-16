@@ -84,7 +84,7 @@
 
   function registerServiceWorker() {
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
     }
   }
 
@@ -111,9 +111,7 @@
         document.querySelectorAll('.dropdown-menu.show').forEach(m => {
           if (m !== menu) m.classList.remove('show');
         });
-        const menu = toggle.nextElementSibling;
-if (!menu || !menu.classList) return;   // <-- أضف هذا السطر
-menu.classList.toggle('show');          // <-- هذا السطر موجود بالفعل;
+        menu.classList.toggle('show');
       });
     });
     document.addEventListener('click', () => {
@@ -137,21 +135,3 @@ menu.classList.toggle('show');          // <-- هذا السطر موجود با
     init();
   }
 })();
-
-// ---- Clipboard fallback function ----
-function fallbackCopyText(text) {
-  try {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    return true;
-  } catch (e) {
-    console.warn('Fallback copy failed:', e);
-    return false;
-  }
-}
