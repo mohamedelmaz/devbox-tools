@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   'use strict';
 
   const THEME_KEY = 'devbox-theme';
@@ -128,10 +128,8 @@
       toggle.addEventListener('click', (e) => {
         e.stopPropagation();
         const menu = toggle.nextElementSibling;
-        // ✅ Guard: check if menu exists
         if (!menu || !menu.classList) return;
 
-        // Close other open dropdowns
         document.querySelectorAll('.dropdown-menu.show').forEach(m => {
           if (m !== menu) m.classList.remove('show');
         });
@@ -142,7 +140,6 @@
       });
     });
 
-    // Close dropdowns when clicking outside
     document.addEventListener('click', () => {
       document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
       document.querySelectorAll('.dropdown-toggle[aria-expanded="true"]').forEach(btn => {
@@ -150,7 +147,6 @@
       });
     });
 
-    // ✅ Escape key handler
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
