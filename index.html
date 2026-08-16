@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -34,16 +34,18 @@
         </svg>
         DevBox
       </a>
-      <nav role="navigation">
-        <ul class="nav-links" aria-hidden="false">
+      <nav>
+        <ul class="nav-links">
+<li><a href="./" class="nav-home">Home</a></li>
           <li><a href="./about/">About</a></li>
           <li><a href="./guides/">Guides</a></li>
           <li><a href="./developers/">Developers</a></li>
+          <li><a href="./donate/">Donate</a></li>
         </ul>
       </nav>
       <div class="header-actions">
         <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
-        <button class="menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+        <button class="menu-toggle" aria-label="Menu">☰</button>
       </div>
     </div>
   </header>
@@ -56,7 +58,6 @@
         <p>14 in-browser developer tools. No sign-up, no tracking, no server round-trips. Your data never leaves your device.</p>
         <div class="search-box">
           <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <label for="tool-search" class="sr-only">Search tools</label>
           <input type="search" id="tool-search" placeholder="Search tools... (e.g. JSON, Regex, JWT)">
         </div>
         <p class="search-hint">Type to filter tools instantly</p>
@@ -257,16 +258,7 @@
     </p>
   </footer>
 
-  <nav class="mobile-nav">
-    <div class="mobile-nav-inner">
-      <a href="./" class="active">Home</a>
-      <a href="./tools/json-formatter/">Tools</a>
-      <a href="./guides/">Guides</a>
-      <a href="./about/">About</a>
-    </div>
-  </nav>
 
   <script src="./assets/js/app.js"></script>
 </body>
 </html>
-

@@ -894,3 +894,35 @@ footer {
   color: var(--accent);
   font-weight: 600;
 }
+/* ===== إصلاحات القائمة المتنقلة ===== */
+.nav-links.open {
+  display: flex !important;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px;
+  gap: 12px;
+  box-shadow: var(--shadow-lg);
+  z-index: 99;
+}
+.menu-toggle { display: flex; align-items: center; justify-content: center; }
+@media (min-width: 769px) { .menu-toggle { display: none; } .nav-links { display: flex !important; } }
+@media (max-width: 768px) {
+  .menu-toggle { display: flex; }
+  .nav-links { display: none; }
+  .nav-links.open { display: flex !important; }
+  .header-actions { display: flex; }
+  .mobile-nav { display: none !important; }
+}
+.nav-home { font-weight: 600; }
+.nav-links a.active { color: var(--accent); font-weight: 600; position: relative; }
+.nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: var(--accent); border-radius: 2px; }
+.logo { transition: opacity 0.2s; cursor: pointer; }
+.logo:hover { opacity: 0.8; }
+.logo:active { opacity: 0.6; }
+.nav-links.open li { width: 100%; }
+.nav-links.open a { display: block; padding: 12px 0; font-size: 1rem; }
